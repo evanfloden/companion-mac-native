@@ -1,6 +1,48 @@
-# Companion
+# Companion - Mac Native Execution Fork
 
 A portable, scalable eukaryotic genome annotation pipeline implemented in Nextflow.
+
+*NOTE:* This is a specific fork of companion used for testing stability of bioinformatics pipelines across machines and platforms. It is not intended for real-world use.
+
+**INSTALL:** To run this fork natively on Mac OSX, a large number of dependancies are needed, including but not limited to:
+
+* blast2
+* blast+
+* snap
+* mummer
+* infernal
+* hmmer
+* exonerate
+* mafft
+* fasttree
+* circos
+* genometools
+* tantan
+* aragorn
+* boost
+* augustus
+* mlc
+* lp_solve
+* netcat
+* bio-perl
+* libsvg
+* libgd
+* libgsl
+* libgsl2
+* suiteparse
+* esl2
+* last-align
+* orthomcl
+* abacus2
+* ratt
+* perl
+* lua
+
+This fork comes with the *Leishmania infantum* genome in the example-data folder and is set to annotate this genome by default.
+
+The results after this execution can be found in the folder mac_local_results
+
+Everything after this line in the README is for the default Companion and may not be specific to this fork.
 
 ### [Purpose](#platforms)
 

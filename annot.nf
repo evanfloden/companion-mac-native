@@ -972,7 +972,9 @@ process run_orthomcl {
     orthomcl.pl --inflation 1.5 --mode 3 \
       --blast_file blastout \
       --gg_file ggfile
-    cp `find . -mindepth 1 -name all_orthomcl.out` orthomcl_out
+     
+    cp `find \$ORTHOMCL_HOME -type f -name all_orthomcl.out -print0 | xargs -0 stat -f "%m %N" | sort -rn | head -1 | cut -f2- -d" "` orthomcl_out
+    #cp `find . -mindepth 1 -name all_orthomcl.out` orthomcl_out
     """
 }
 
@@ -1403,11 +1405,11 @@ if (params.make_embl) {
         script:
         if (params.embl_ena_submission)
             """
-            zcat ${embl_full_seq} > 1 && gff3_to_embl.lua -e -o embl_in.gff3 ${go_obo} '${params.EMBL_ORGANISM}' 1
+            zcat < ${embl_full_seq} > 1 && gff3_to_embl.lua -e -o embl_in.gff3 ${go_obo} '${params.EMBL_ORGANISM}' 1
             """
         else
             """
-            zcat ${embl_full_seq} > 1 && gff3_to_embl.lua -o embl_in.gff3 ${go_obo} '${params.EMBL_ORGANISM}' 1
+            zcat < ${embl_full_seq} > 1 && gff3_to_embl.lua -o embl_in.gff3 ${go_obo} '${params.EMBL_ORGANISM}' 1
             """
     }
 
